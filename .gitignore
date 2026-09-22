@@ -1,0 +1,22 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Large data / models / audio (fetched from HF, not committed)
+data/
+data_audio/
+models/*.onnx
+models/*.csv
+models/autogluon_tmp/
+models/.cache/
+
+# Results: keep small CSV/JSON summaries, exclude any large artifacts
+results/*.npz
+
+# OS
+.DS_Store
+
+# AutoGluon working dirs
+AutogluonModels/
+*.ag/

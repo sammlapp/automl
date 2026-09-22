@@ -1,0 +1,6 @@
+Total train pool: 1456, test: 368
+Classes: 19
+
+=== frac0.1_seed0: n_train=144 (min/class=3, max/class=19) ===
+	Warning: Exception caused NeuralNetFastAI_BAG_L1 to fail during training (ImportError)... Skipping this model.
+		Import fastai failed. A quick tip is to install via `pip install autogluon.tabular[fastai]==1.6.3`. 
