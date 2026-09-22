@@ -21,3 +21,4 @@ results/*.npz
 AutogluonModels/
 *.ag/
 catboost_info/
+results/embed_multilabel_log.txt

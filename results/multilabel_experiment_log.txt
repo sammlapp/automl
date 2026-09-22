@@ -1,0 +1,204 @@
+Total clips: 47701 (train=38159, test=9542)
+Species: ['Fringilla coelebs', 'Malacopteron magnirostre', 'Turdus merula', 'Stachyris maculata', 'Sylvia atricapilla', 'Dicrurus paradiseus', 'Erithacus rubecula', 'Luscinia megarhynchos']
+
+### Species: Fringilla coelebs | train pool pos=3421 neg=34738 | test pos=847/9542 ###
+
+  === Fringilla coelebs_pos1000_seed0: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9287 f1=0.6934 AP=0.8353
+    AutoGluon:    acc=0.9597 f1=0.7853 AP=0.8549 (best=WeightedEnsemble_L2)
+
+  === Fringilla coelebs_pos1000_seed1: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9336 f1=0.7094 AP=0.8402
+    AutoGluon:    acc=0.9432 f1=0.7361 AP=0.8484 (best=WeightedEnsemble_L2)
+
+  === Fringilla coelebs_pos1000_seed2: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9317 f1=0.6993 AP=0.8403
+    AutoGluon:    acc=0.9430 f1=0.7307 AP=0.8323 (best=WeightedEnsemble_L2)
+
+  === Fringilla coelebs_pos2500_seed0: n_train=10000 (pos=2500, neg=7500) ===
+    Linear probe: acc=0.9330 f1=0.7097 AP=0.8548
+    AutoGluon:    acc=0.9419 f1=0.7352 AP=0.8655 (best=WeightedEnsemble_L2)
+
+  === Fringilla coelebs_pos2500_seed1: n_train=10000 (pos=2500, neg=7500) ===
+    Linear probe: acc=0.9343 f1=0.7138 AP=0.8637
+    AutoGluon:    acc=0.9501 f1=0.7586 AP=0.8675 (best=WeightedEnsemble_L2)
+
+  === Fringilla coelebs_pos2500_seed2: n_train=10000 (pos=2500, neg=7500) ===
+    Linear probe: acc=0.9337 f1=0.7095 AP=0.8578
+    AutoGluon:    acc=0.9463 f1=0.7432 AP=0.8453 (best=NeuralNetTorch)
+
+  === Fringilla coelebs_pos5000_seed0: n_train=13684 (pos=3421, neg=10263) ===
+    Linear probe: acc=0.9343 f1=0.7151 AP=0.8634
+    AutoGluon:    acc=0.9510 f1=0.7653 AP=0.8765 (best=WeightedEnsemble_L2)
+
+### Species: Malacopteron magnirostre | train pool pos=3719 neg=34440 | test pos=924/9542 ###
+
+  === Malacopteron magnirostre_pos1000_seed0: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9600 f1=0.8205 AP=0.9109
+    AutoGluon:    acc=0.9719 f1=0.8624 AP=0.9247 (best=NeuralNetTorch)
+
+  === Malacopteron magnirostre_pos1000_seed1: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9599 f1=0.8170 AP=0.9069
+    AutoGluon:    acc=0.9691 f1=0.8521 AP=0.9070 (best=WeightedEnsemble_L2)
+
+  === Malacopteron magnirostre_pos1000_seed2: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9597 f1=0.8197 AP=0.9114
+    AutoGluon:    acc=0.9601 f1=0.8219 AP=0.9214 (best=WeightedEnsemble_L2)
+
+  === Malacopteron magnirostre_pos2500_seed0: n_train=10000 (pos=2500, neg=7500) ===
+    Linear probe: acc=0.9651 f1=0.8411 AP=0.9279
+    AutoGluon:    acc=0.9795 f1=0.8965 AP=0.9545 (best=NeuralNetTorch)
+
+  === Malacopteron magnirostre_pos2500_seed1: n_train=10000 (pos=2500, neg=7500) ===
+    Linear probe: acc=0.9659 f1=0.8429 AP=0.9305
+    AutoGluon:    acc=0.9775 f1=0.8889 AP=0.9566 (best=NeuralNetTorch)
+
+  === Malacopteron magnirostre_pos2500_seed2: n_train=10000 (pos=2500, neg=7500) ===
+    Linear probe: acc=0.9643 f1=0.8380 AP=0.9333
+    AutoGluon:    acc=0.9776 f1=0.8904 AP=0.9358 (best=WeightedEnsemble_L2)
+
+  === Malacopteron magnirostre_pos5000_seed0: n_train=14876 (pos=3719, neg=11157) ===
+    Linear probe: acc=0.9695 f1=0.8591 AP=0.9428
+    AutoGluon:    acc=0.9811 f1=0.9074 AP=0.9672 (best=NeuralNetTorch)
+
+### Species: Turdus merula | train pool pos=2660 neg=35499 | test pos=639/9542 ###
+
+  === Turdus merula_pos1000_seed0: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9154 f1=0.5876 AP=0.7827
+    AutoGluon:    acc=0.9463 f1=0.6768 AP=0.8029 (best=WeightedEnsemble_L2)
+
+  === Turdus merula_pos1000_seed1: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9231 f1=0.6083 AP=0.7898
+    AutoGluon:    acc=0.9579 f1=0.7087 AP=0.7897 (best=WeightedEnsemble_L2)
+
+  === Turdus merula_pos1000_seed2: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9128 f1=0.5764 AP=0.7917
+    AutoGluon:    acc=0.9417 f1=0.6638 AP=0.7951 (best=WeightedEnsemble_L2)
+
+  === Turdus merula_pos2500_seed0: n_train=10000 (pos=2500, neg=7500) ===
+    Linear probe: acc=0.9162 f1=0.5923 AP=0.7888
+    AutoGluon:    acc=0.9481 f1=0.6804 AP=0.7770 (best=NeuralNetTorch)
+
+  === Turdus merula_pos2500_seed1: n_train=10000 (pos=2500, neg=7500) ===
+    Linear probe: acc=0.9176 f1=0.5965 AP=0.7879
+    AutoGluon:    acc=0.9518 f1=0.7005 AP=0.8240 (best=NeuralNetTorch)
+
+  === Turdus merula_pos2500_seed2: n_train=10000 (pos=2500, neg=7500) ===
+    Linear probe: acc=0.9167 f1=0.5921 AP=0.7880
+    AutoGluon:    acc=0.9511 f1=0.6973 AP=0.8156 (best=WeightedEnsemble_L2)
+
+  === Turdus merula_pos5000_seed0: n_train=10640 (pos=2660, neg=7980) ===
+    Linear probe: acc=0.9178 f1=0.5979 AP=0.7901
+    AutoGluon:    acc=0.9479 f1=0.6903 AP=0.8185 (best=WeightedEnsemble_L2)
+
+### Species: Stachyris maculata | train pool pos=2105 neg=36054 | test pos=495/9542 ###
+
+  === Stachyris maculata_pos1000_seed0: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9621 f1=0.7172 AP=0.8935
+    AutoGluon:    acc=0.9740 f1=0.7840 AP=0.9043 (best=NeuralNetTorch)
+
+  === Stachyris maculata_pos1000_seed1: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9622 f1=0.7195 AP=0.8897
+    AutoGluon:    acc=0.9726 f1=0.7775 AP=0.9086 (best=NeuralNetTorch)
+
+  === Stachyris maculata_pos1000_seed2: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9638 f1=0.7281 AP=0.9008
+    AutoGluon:    acc=0.9747 f1=0.7895 AP=0.9101 (best=NeuralNetTorch)
+
+  === Stachyris maculata_pos2500_seed0: n_train=8420 (pos=2105, neg=6315) ===
+    Linear probe: acc=0.9656 f1=0.7401 AP=0.9176
+    AutoGluon:    acc=0.9803 f1=0.8291 AP=0.9354 (best=NeuralNetTorch)
+
+  === Stachyris maculata_pos5000_seed0: n_train=8420 (pos=2105, neg=6315) ===
+    Linear probe: acc=0.9656 f1=0.7401 AP=0.9176
+    AutoGluon:    acc=0.9803 f1=0.8291 AP=0.9354 (best=NeuralNetTorch)
+
+### Species: Sylvia atricapilla | train pool pos=1662 neg=36497 | test pos=413/9542 ###
+
+  === Sylvia atricapilla_pos1000_seed0: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9420 f1=0.5807 AP=0.7846
+    AutoGluon:    acc=0.9603 f1=0.6520 AP=0.7905 (best=WeightedEnsemble_L2)
+
+  === Sylvia atricapilla_pos1000_seed1: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9401 f1=0.5750 AP=0.7872
+    AutoGluon:    acc=0.9735 f1=0.7300 AP=0.7990 (best=WeightedEnsemble_L2)
+
+  === Sylvia atricapilla_pos1000_seed2: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9299 f1=0.5357 AP=0.7889
+    AutoGluon:    acc=0.9656 f1=0.6846 AP=0.7466 (best=NeuralNetTorch)
+
+  === Sylvia atricapilla_pos2500_seed0: n_train=6648 (pos=1662, neg=4986) ===
+    Linear probe: acc=0.9375 f1=0.5662 AP=0.7924
+    AutoGluon:    acc=0.9604 f1=0.6619 AP=0.8031 (best=NeuralNetTorch)
+
+  === Sylvia atricapilla_pos5000_seed0: n_train=6648 (pos=1662, neg=4986) ===
+    Linear probe: acc=0.9375 f1=0.5662 AP=0.7924
+    AutoGluon:    acc=0.9604 f1=0.6619 AP=0.8031 (best=NeuralNetTorch)
+
+### Species: Dicrurus paradiseus | train pool pos=1747 neg=36412 | test pos=417/9542 ###
+
+  === Dicrurus paradiseus_pos1000_seed0: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9374 f1=0.5671 AP=0.7192
+    AutoGluon:    acc=0.9627 f1=0.6787 AP=0.7889 (best=NeuralNetTorch)
+
+  === Dicrurus paradiseus_pos1000_seed1: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9493 f1=0.6116 AP=0.7398
+    AutoGluon:    acc=0.9616 f1=0.6767 AP=0.7739 (best=NeuralNetTorch)
+
+  === Dicrurus paradiseus_pos1000_seed2: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9389 f1=0.5729 AP=0.7181
+    AutoGluon:    acc=0.9608 f1=0.6618 AP=0.7786 (best=WeightedEnsemble_L2)
+
+  === Dicrurus paradiseus_pos2500_seed0: n_train=6988 (pos=1747, neg=5241) ===
+    Linear probe: acc=0.9456 f1=0.6041 AP=0.7721
+    AutoGluon:    acc=0.9682 f1=0.7133 AP=0.8527 (best=NeuralNetTorch)
+
+  === Dicrurus paradiseus_pos5000_seed0: n_train=6988 (pos=1747, neg=5241) ===
+    Linear probe: acc=0.9456 f1=0.6041 AP=0.7721
+    AutoGluon:    acc=0.9682 f1=0.7133 AP=0.8527 (best=NeuralNetTorch)
+
+### Species: Erithacus rubecula | train pool pos=1571 neg=36588 | test pos=391/9542 ###
+
+  === Erithacus rubecula_pos1000_seed0: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9264 f1=0.5021 AP=0.6953
+    AutoGluon:    acc=0.9469 f1=0.5685 AP=0.7086 (best=WeightedEnsemble_L2)
+
+  === Erithacus rubecula_pos1000_seed1: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9248 f1=0.4951 AP=0.6878
+    AutoGluon:    acc=0.9476 f1=0.5667 AP=0.7073 (best=NeuralNetTorch)
+
+  === Erithacus rubecula_pos1000_seed2: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9313 f1=0.5082 AP=0.7048
+    AutoGluon:    acc=0.9460 f1=0.5683 AP=0.7190 (best=NeuralNetTorch)
+
+  === Erithacus rubecula_pos2500_seed0: n_train=6284 (pos=1571, neg=4713) ===
+    Linear probe: acc=0.9285 f1=0.5079 AP=0.7073
+    AutoGluon:    acc=0.9472 f1=0.5765 AP=0.6658 (best=NeuralNetTorch)
+
+  === Erithacus rubecula_pos5000_seed0: n_train=6284 (pos=1571, neg=4713) ===
+    Linear probe: acc=0.9285 f1=0.5079 AP=0.7073
+    AutoGluon:    acc=0.9472 f1=0.5765 AP=0.6658 (best=NeuralNetTorch)
+
+### Species: Luscinia megarhynchos | train pool pos=1512 neg=36647 | test pos=382/9542 ###
+
+  === Luscinia megarhynchos_pos1000_seed0: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9508 f1=0.6002 AP=0.7834
+    AutoGluon:    acc=0.9586 f1=0.6386 AP=0.8025 (best=NeuralNetTorch)
+
+  === Luscinia megarhynchos_pos1000_seed1: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9423 f1=0.5665 AP=0.7741
+    AutoGluon:    acc=0.9582 f1=0.6369 AP=0.8033 (best=NeuralNetTorch)
+
+  === Luscinia megarhynchos_pos1000_seed2: n_train=4000 (pos=1000, neg=3000) ===
+    Linear probe: acc=0.9481 f1=0.5878 AP=0.7796
+    AutoGluon:    acc=0.9565 f1=0.6210 AP=0.7592 (best=NeuralNetTorch)
+
+  === Luscinia megarhynchos_pos2500_seed0: n_train=6048 (pos=1512, neg=4536) ===
+    Linear probe: acc=0.9493 f1=0.5940 AP=0.7922
+    AutoGluon:    acc=0.9620 f1=0.6526 AP=0.7813 (best=NeuralNetTorch)
+
+  === Luscinia megarhynchos_pos5000_seed0: n_train=6048 (pos=1512, neg=4536) ===
+    Linear probe: acc=0.9493 f1=0.5940 AP=0.7922
+    AutoGluon:    acc=0.9620 f1=0.6526 AP=0.7813 (best=NeuralNetTorch)
+
+Done. Results saved to results/raw_results_multilabel.json

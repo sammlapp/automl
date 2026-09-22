@@ -1,0 +1,1290 @@
+[
+  {
+    "species": "Fringilla coelebs",
+    "target_pos": 1000,
+    "seed": 0,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 847,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9287361140222176,
+      "f1": 0.6934174932371506,
+      "precision": 0.5609044493070752,
+      "recall": 0.9079102715466352,
+      "average_precision": 0.8353323637310174,
+      "auroc": 0.9765378330175236
+    },
+    "autogluon": {
+      "accuracy": 0.9596520645566967,
+      "f1": 0.7852760736196319,
+      "precision": 0.7441860465116279,
+      "recall": 0.8311688311688312,
+      "average_precision": 0.8549387733047035,
+      "auroc": 0.9789019595595998,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Fringilla coelebs",
+    "target_pos": 1000,
+    "seed": 1,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 847,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9335569063089499,
+      "f1": 0.7094408799266728,
+      "precision": 0.5797752808988764,
+      "recall": 0.9138134592680047,
+      "average_precision": 0.8402241114331525,
+      "auroc": 0.9772263911528902
+    },
+    "autogluon": {
+      "accuracy": 0.9431984908824146,
+      "f1": 0.7361246348588121,
+      "precision": 0.6263463131731566,
+      "recall": 0.8925619834710744,
+      "average_precision": 0.8483890662815937,
+      "auroc": 0.9792769935903399,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Fringilla coelebs",
+    "target_pos": 1000,
+    "seed": 2,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 847,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9316705093271851,
+      "f1": 0.6992619926199262,
+      "precision": 0.5738077214231643,
+      "recall": 0.8949232585596222,
+      "average_precision": 0.8403123668286077,
+      "auroc": 0.9775578386796956
+    },
+    "autogluon": {
+      "accuracy": 0.9429888912177741,
+      "f1": 0.7306930693069307,
+      "precision": 0.629156010230179,
+      "recall": 0.8713105076741441,
+      "average_precision": 0.8323063058935891,
+      "auroc": 0.9770650803532814,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Fringilla coelebs",
+    "target_pos": 2500,
+    "seed": 0,
+    "n_train": 10000,
+    "n_train_pos": 2500,
+    "n_train_neg": 7500,
+    "n_test_pos": 847,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9330329071473485,
+      "f1": 0.7096774193548387,
+      "precision": 0.5768094534711965,
+      "recall": 0.922077922077922,
+      "average_precision": 0.8547951090457928,
+      "auroc": 0.9795231690782948
+    },
+    "autogluon": {
+      "accuracy": 0.9419408928945714,
+      "f1": 0.7351816443594646,
+      "precision": 0.6176706827309237,
+      "recall": 0.9079102715466352,
+      "average_precision": 0.8654603539778141,
+      "auroc": 0.9818657060436559,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Fringilla coelebs",
+    "target_pos": 2500,
+    "seed": 1,
+    "n_train": 10000,
+    "n_train_pos": 2500,
+    "n_train_neg": 7500,
+    "n_test_pos": 847,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9342905051351917,
+      "f1": 0.7138293016887266,
+      "precision": 0.5818452380952381,
+      "recall": 0.9232585596221959,
+      "average_precision": 0.8636539335762592,
+      "auroc": 0.9809550061000738
+    },
+    "autogluon": {
+      "accuracy": 0.9501152798155523,
+      "f1": 0.7586206896551724,
+      "precision": 0.6648888888888889,
+      "recall": 0.8831168831168831,
+      "average_precision": 0.8674548006867471,
+      "auroc": 0.9828098087285708,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Fringilla coelebs",
+    "target_pos": 2500,
+    "seed": 2,
+    "n_train": 10000,
+    "n_train_pos": 2500,
+    "n_train_neg": 7500,
+    "n_test_pos": 847,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9336617061412702,
+      "f1": 0.7094997705369436,
+      "precision": 0.5803303303303303,
+      "recall": 0.9126328217237308,
+      "average_precision": 0.8577634695150668,
+      "auroc": 0.9804365846919039
+    },
+    "autogluon": {
+      "accuracy": 0.9463424858520226,
+      "f1": 0.7432296890672017,
+      "precision": 0.6460331299040977,
+      "recall": 0.8748524203069658,
+      "average_precision": 0.8452905083286183,
+      "auroc": 0.9789327824144072,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Fringilla coelebs",
+    "target_pos": 5000,
+    "seed": 0,
+    "n_train": 13684,
+    "n_train_pos": 3421,
+    "n_train_neg": 10263,
+    "n_test_pos": 847,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9342905051351917,
+      "f1": 0.7151294865970014,
+      "precision": 0.5812407680945347,
+      "recall": 0.9291617473435655,
+      "average_precision": 0.8633589073341879,
+      "auroc": 0.9809365395438896
+    },
+    "autogluon": {
+      "accuracy": 0.9509536784741145,
+      "f1": 0.765295887662989,
+      "precision": 0.6652136006974717,
+      "recall": 0.9008264462809917,
+      "average_precision": 0.8764576835233856,
+      "auroc": 0.9834167609796236,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Malacopteron magnirostre",
+    "target_pos": 1000,
+    "seed": 0,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 924,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9599664640536575,
+      "f1": 0.8204887218045113,
+      "precision": 0.7250830564784053,
+      "recall": 0.9448051948051948,
+      "average_precision": 0.9108682380921242,
+      "auroc": 0.9901405645487799
+    },
+    "autogluon": {
+      "accuracy": 0.9719136449381681,
+      "f1": 0.8624229979466119,
+      "precision": 0.8203125,
+      "recall": 0.9090909090909091,
+      "average_precision": 0.9247411552893567,
+      "auroc": 0.9924928720617975,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Malacopteron magnirostre",
+    "target_pos": 1000,
+    "seed": 1,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 924,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9598616642213372,
+      "f1": 0.8170090778786431,
+      "precision": 0.7313943541488451,
+      "recall": 0.9253246753246753,
+      "average_precision": 0.9068724704284704,
+      "auroc": 0.9887431068969709
+    },
+    "autogluon": {
+      "accuracy": 0.9690840494655208,
+      "f1": 0.8521303258145363,
+      "precision": 0.7936507936507936,
+      "recall": 0.9199134199134199,
+      "average_precision": 0.9069528154741671,
+      "auroc": 0.9912858569449425,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Malacopteron magnirostre",
+    "target_pos": 1000,
+    "seed": 2,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 924,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9596520645566967,
+      "f1": 0.819672131147541,
+      "precision": 0.7225433526011561,
+      "recall": 0.946969696969697,
+      "average_precision": 0.9113734627688316,
+      "auroc": 0.9897398377904295
+    },
+    "autogluon": {
+      "accuracy": 0.9600712638859777,
+      "f1": 0.8218793828892006,
+      "precision": 0.7234567901234568,
+      "recall": 0.9512987012987013,
+      "average_precision": 0.9213589669446712,
+      "auroc": 0.9919626092171927,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Malacopteron magnirostre",
+    "target_pos": 2500,
+    "seed": 0,
+    "n_train": 10000,
+    "n_train_pos": 2500,
+    "n_train_neg": 7500,
+    "n_test_pos": 924,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9651016558373506,
+      "f1": 0.8410501193317422,
+      "precision": 0.7523484201537147,
+      "recall": 0.9534632034632035,
+      "average_precision": 0.927870305619602,
+      "auroc": 0.9923535407116285
+    },
+    "autogluon": {
+      "accuracy": 0.9794592328652274,
+      "f1": 0.8965153115100317,
+      "precision": 0.8752577319587629,
+      "recall": 0.9188311688311688,
+      "average_precision": 0.9545309063597774,
+      "auroc": 0.9953085709061573,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Malacopteron magnirostre",
+    "target_pos": 2500,
+    "seed": 1,
+    "n_train": 10000,
+    "n_train_pos": 2500,
+    "n_train_neg": 7500,
+    "n_test_pos": 924,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9659400544959128,
+      "f1": 0.8429192846785887,
+      "precision": 0.7615720524017467,
+      "recall": 0.9437229437229437,
+      "average_precision": 0.9304573153846533,
+      "auroc": 0.991948167481934
+    },
+    "autogluon": {
+      "accuracy": 0.9774680360511423,
+      "f1": 0.8888888888888888,
+      "precision": 0.8506429277942631,
+      "recall": 0.9307359307359307,
+      "average_precision": 0.9565555349642655,
+      "auroc": 0.9950813961315237,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Malacopteron magnirostre",
+    "target_pos": 2500,
+    "seed": 2,
+    "n_train": 10000,
+    "n_train_pos": 2500,
+    "n_train_neg": 7500,
+    "n_test_pos": 924,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9642632571787885,
+      "f1": 0.8380047505938242,
+      "precision": 0.7468247248094835,
+      "recall": 0.9545454545454546,
+      "average_precision": 0.9333175684155345,
+      "auroc": 0.9924295167971195
+    },
+    "autogluon": {
+      "accuracy": 0.9775728358834626,
+      "f1": 0.8903688524590164,
+      "precision": 0.8453307392996109,
+      "recall": 0.9404761904761905,
+      "average_precision": 0.9358237844115658,
+      "auroc": 0.9940537724826423,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Malacopteron magnirostre",
+    "target_pos": 5000,
+    "seed": 0,
+    "n_train": 14876,
+    "n_train_pos": 3719,
+    "n_train_neg": 11157,
+    "n_test_pos": 924,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9695032487948019,
+      "f1": 0.8590799031476998,
+      "precision": 0.7773882559158632,
+      "recall": 0.95995670995671,
+      "average_precision": 0.9427627963674815,
+      "auroc": 0.9936055763683984
+    },
+    "autogluon": {
+      "accuracy": 0.9811360301823517,
+      "f1": 0.9074074074074074,
+      "precision": 0.8647058823529412,
+      "recall": 0.9545454545454546,
+      "average_precision": 0.9671805033851083,
+      "auroc": 0.9968382646208128,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Turdus merula",
+    "target_pos": 1000,
+    "seed": 0,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 639,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9154265353175435,
+      "f1": 0.5876341338783853,
+      "precision": 0.4362670713201821,
+      "recall": 0.8998435054773083,
+      "average_precision": 0.7826950204165072,
+      "auroc": 0.971494548179413
+    },
+    "autogluon": {
+      "accuracy": 0.9463424858520226,
+      "f1": 0.6767676767676768,
+      "precision": 0.5671957671957671,
+      "recall": 0.838810641627543,
+      "average_precision": 0.8028896352679835,
+      "auroc": 0.9740593146408246,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Turdus merula",
+    "target_pos": 1000,
+    "seed": 1,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 639,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9230769230769231,
+      "f1": 0.608324439701174,
+      "precision": 0.46153846153846156,
+      "recall": 0.892018779342723,
+      "average_precision": 0.7898066915736008,
+      "auroc": 0.9705080860190786
+    },
+    "autogluon": {
+      "accuracy": 0.9578704674072521,
+      "f1": 0.7086956521739131,
+      "precision": 0.659919028340081,
+      "recall": 0.7652582159624414,
+      "average_precision": 0.789710780161131,
+      "auroc": 0.9718262399286203,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Turdus merula",
+    "target_pos": 1000,
+    "seed": 2,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 639,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9128065395095368,
+      "f1": 0.5763747454175153,
+      "precision": 0.4271698113207547,
+      "recall": 0.8857589984350548,
+      "average_precision": 0.79173315607688,
+      "auroc": 0.9732208569599985
+    },
+    "autogluon": {
+      "accuracy": 0.9417312932299309,
+      "f1": 0.6638452237001209,
+      "precision": 0.5408866995073892,
+      "recall": 0.8591549295774648,
+      "average_precision": 0.7950563166737037,
+      "auroc": 0.9736418435733274,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Turdus merula",
+    "target_pos": 2500,
+    "seed": 0,
+    "n_train": 10000,
+    "n_train_pos": 2500,
+    "n_train_neg": 7500,
+    "n_test_pos": 639,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9161601341437854,
+      "f1": 0.5922528032619776,
+      "precision": 0.43915343915343913,
+      "recall": 0.9092331768388107,
+      "average_precision": 0.7888483391901461,
+      "auroc": 0.9739795117504483
+    },
+    "autogluon": {
+      "accuracy": 0.9481240830014672,
+      "f1": 0.6804389928986443,
+      "precision": 0.5791208791208792,
+      "recall": 0.8247261345852895,
+      "average_precision": 0.7770219808702452,
+      "auroc": 0.9740361999269821,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Turdus merula",
+    "target_pos": 2500,
+    "seed": 1,
+    "n_train": 10000,
+    "n_train_pos": 2500,
+    "n_train_neg": 7500,
+    "n_test_pos": 639,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9176273317962691,
+      "f1": 0.5965092402464066,
+      "precision": 0.44385026737967914,
+      "recall": 0.9092331768388107,
+      "average_precision": 0.7878669202051511,
+      "auroc": 0.9735442871765018
+    },
+    "autogluon": {
+      "accuracy": 0.9517920771326766,
+      "f1": 0.7005208333333334,
+      "precision": 0.5997770345596433,
+      "recall": 0.8419405320813772,
+      "average_precision": 0.8239898600856587,
+      "auroc": 0.9777044083362733,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Turdus merula",
+    "target_pos": 2500,
+    "seed": 2,
+    "n_train": 10000,
+    "n_train_pos": 2500,
+    "n_train_neg": 7500,
+    "n_test_pos": 639,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9166841333053867,
+      "f1": 0.5920985120574653,
+      "precision": 0.4404580152671756,
+      "recall": 0.9029733959311425,
+      "average_precision": 0.7879833897717057,
+      "auroc": 0.974054568653952
+    },
+    "autogluon": {
+      "accuracy": 0.9510584783064348,
+      "f1": 0.6973428386260532,
+      "precision": 0.5951327433628318,
+      "recall": 0.8419405320813772,
+      "average_precision": 0.8155606042605492,
+      "auroc": 0.9773516233120765,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Turdus merula",
+    "target_pos": 5000,
+    "seed": 0,
+    "n_train": 10640,
+    "n_train_pos": 2660,
+    "n_train_neg": 7980,
+    "n_test_pos": 639,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9178369314609096,
+      "f1": 0.597948717948718,
+      "precision": 0.444698703279939,
+      "recall": 0.9123630672926447,
+      "average_precision": 0.7901208277080577,
+      "auroc": 0.9742403652511497
+    },
+    "autogluon": {
+      "accuracy": 0.9479144833368267,
+      "f1": 0.6903426791277258,
+      "precision": 0.5734989648033126,
+      "recall": 0.86697965571205,
+      "average_precision": 0.8185383089020889,
+      "auroc": 0.9785955992045725,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Stachyris maculata",
+    "target_pos": 1000,
+    "seed": 0,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 495,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9620624607000628,
+      "f1": 0.7171875,
+      "precision": 0.5847133757961783,
+      "recall": 0.9272727272727272,
+      "average_precision": 0.8934884508055833,
+      "auroc": 0.990226125519593
+    },
+    "autogluon": {
+      "accuracy": 0.9740096415845735,
+      "f1": 0.7839721254355401,
+      "precision": 0.6891271056661562,
+      "recall": 0.9090909090909091,
+      "average_precision": 0.9042982395537591,
+      "auroc": 0.9912518575832382,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Stachyris maculata",
+    "target_pos": 1000,
+    "seed": 1,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 495,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9621672605323831,
+      "f1": 0.7195027195027195,
+      "precision": 0.5845959595959596,
+      "recall": 0.9353535353535354,
+      "average_precision": 0.8897014663287115,
+      "auroc": 0.9901571255832337
+    },
+    "autogluon": {
+      "accuracy": 0.97264724376441,
+      "f1": 0.7774936061381074,
+      "precision": 0.672566371681416,
+      "recall": 0.9212121212121213,
+      "average_precision": 0.9086319156621769,
+      "auroc": 0.9927366960195523,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Stachyris maculata",
+    "target_pos": 1000,
+    "seed": 2,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 495,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9638440578495074,
+      "f1": 0.7281323877068558,
+      "precision": 0.5968992248062015,
+      "recall": 0.9333333333333333,
+      "average_precision": 0.900765685703364,
+      "auroc": 0.9908879889868062
+    },
+    "autogluon": {
+      "accuracy": 0.9747432404108154,
+      "f1": 0.7895196506550218,
+      "precision": 0.6953846153846154,
+      "recall": 0.9131313131313131,
+      "average_precision": 0.9100697165128715,
+      "auroc": 0.9929917054930871,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Stachyris maculata",
+    "target_pos": 2500,
+    "seed": 0,
+    "n_train": 8420,
+    "n_train_pos": 2105,
+    "n_train_neg": 6315,
+    "n_test_pos": 495,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.965625654998952,
+      "f1": 0.7400950871632329,
+      "precision": 0.6088657105606258,
+      "recall": 0.9434343434343434,
+      "average_precision": 0.9175574364752119,
+      "auroc": 0.9921369101649857
+    },
+    "autogluon": {
+      "accuracy": 0.9802976315237896,
+      "f1": 0.8290909090909091,
+      "precision": 0.7537190082644628,
+      "recall": 0.9212121212121213,
+      "average_precision": 0.9353844630307951,
+      "auroc": 0.995005543441489,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Stachyris maculata",
+    "target_pos": 5000,
+    "seed": 0,
+    "n_train": 8420,
+    "n_train_pos": 2105,
+    "n_train_neg": 6315,
+    "n_test_pos": 495,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.965625654998952,
+      "f1": 0.7400950871632329,
+      "precision": 0.6088657105606258,
+      "recall": 0.9434343434343434,
+      "average_precision": 0.9175574364752119,
+      "auroc": 0.9921369101649857
+    },
+    "autogluon": {
+      "accuracy": 0.9802976315237896,
+      "f1": 0.8290909090909091,
+      "precision": 0.7537190082644628,
+      "recall": 0.9212121212121213,
+      "average_precision": 0.9353844630307951,
+      "auroc": 0.995005543441489,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Sylvia atricapilla",
+    "target_pos": 1000,
+    "seed": 0,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 413,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9420456927268916,
+      "f1": 0.5807429871114481,
+      "precision": 0.4227373068432671,
+      "recall": 0.927360774818402,
+      "average_precision": 0.7845633724647608,
+      "auroc": 0.9819604766440239
+    },
+    "autogluon": {
+      "accuracy": 0.9602808635506184,
+      "f1": 0.6519742883379247,
+      "precision": 0.5251479289940828,
+      "recall": 0.8595641646489104,
+      "average_precision": 0.7904761675788458,
+      "auroc": 0.9825551279123523,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Sylvia atricapilla",
+    "target_pos": 1000,
+    "seed": 1,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 413,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9400544959128065,
+      "f1": 0.575037147102526,
+      "precision": 0.41479099678456594,
+      "recall": 0.937046004842615,
+      "average_precision": 0.7872432745411212,
+      "auroc": 0.9837675056766385
+    },
+    "autogluon": {
+      "accuracy": 0.9734856424229721,
+      "f1": 0.7299893276414088,
+      "precision": 0.6526717557251909,
+      "recall": 0.8280871670702179,
+      "average_precision": 0.7989641524923281,
+      "auroc": 0.9857238606075893,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Sylvia atricapilla",
+    "target_pos": 1000,
+    "seed": 2,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 413,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9298889121777405,
+      "f1": 0.5357390700902152,
+      "precision": 0.3754863813229572,
+      "recall": 0.9346246973365617,
+      "average_precision": 0.7888994523108616,
+      "auroc": 0.9828230127388518
+    },
+    "autogluon": {
+      "accuracy": 0.965625654998952,
+      "f1": 0.6846153846153846,
+      "precision": 0.5677830940988836,
+      "recall": 0.8619854721549637,
+      "average_precision": 0.7465865245477552,
+      "auroc": 0.9808381453139915,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Sylvia atricapilla",
+    "target_pos": 2500,
+    "seed": 0,
+    "n_train": 6648,
+    "n_train_pos": 1662,
+    "n_train_neg": 4986,
+    "n_test_pos": 413,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9375392999371202,
+      "f1": 0.5662299854439592,
+      "precision": 0.404786680541103,
+      "recall": 0.9418886198547215,
+      "average_precision": 0.7924045737584549,
+      "auroc": 0.9835404666553678
+    },
+    "autogluon": {
+      "accuracy": 0.9603856633829386,
+      "f1": 0.6618962432915921,
+      "precision": 0.524822695035461,
+      "recall": 0.8958837772397095,
+      "average_precision": 0.80310058215393,
+      "auroc": 0.9832739079913756,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Sylvia atricapilla",
+    "target_pos": 5000,
+    "seed": 0,
+    "n_train": 6648,
+    "n_train_pos": 1662,
+    "n_train_neg": 4986,
+    "n_test_pos": 413,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9375392999371202,
+      "f1": 0.5662299854439592,
+      "precision": 0.404786680541103,
+      "recall": 0.9418886198547215,
+      "average_precision": 0.7924045737584549,
+      "auroc": 0.9835404666553678
+    },
+    "autogluon": {
+      "accuracy": 0.9603856633829386,
+      "f1": 0.6618962432915921,
+      "precision": 0.524822695035461,
+      "recall": 0.8958837772397095,
+      "average_precision": 0.80310058215393,
+      "auroc": 0.9832739079913756,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Dicrurus paradiseus",
+    "target_pos": 1000,
+    "seed": 0,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 417,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9374345001047998,
+      "f1": 0.5670775924583031,
+      "precision": 0.40644490644490644,
+      "recall": 0.9376498800959233,
+      "average_precision": 0.7191544024912061,
+      "auroc": 0.9817779967806576
+    },
+    "autogluon": {
+      "accuracy": 0.9626912596939845,
+      "f1": 0.6787003610108303,
+      "precision": 0.5441389290882779,
+      "recall": 0.9016786570743405,
+      "average_precision": 0.7889385415792173,
+      "auroc": 0.9854330672448343,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Dicrurus paradiseus",
+    "target_pos": 1000,
+    "seed": 1,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 417,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9492768811569902,
+      "f1": 0.6115569823434992,
+      "precision": 0.45958986731001206,
+      "recall": 0.9136690647482014,
+      "average_precision": 0.7398085107280037,
+      "auroc": 0.9803181235833252
+    },
+    "autogluon": {
+      "accuracy": 0.9616432613707818,
+      "f1": 0.676678445229682,
+      "precision": 0.5356643356643357,
+      "recall": 0.9184652278177458,
+      "average_precision": 0.7739144445608799,
+      "auroc": 0.9867469531224335,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Dicrurus paradiseus",
+    "target_pos": 1000,
+    "seed": 2,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 417,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9389016977572836,
+      "f1": 0.5728937728937729,
+      "precision": 0.41244725738396626,
+      "recall": 0.9376498800959233,
+      "average_precision": 0.7180582442224048,
+      "auroc": 0.9818852205906508
+    },
+    "autogluon": {
+      "accuracy": 0.9608048627122197,
+      "f1": 0.6618444846292948,
+      "precision": 0.5312046444121916,
+      "recall": 0.8776978417266187,
+      "average_precision": 0.7786376683881626,
+      "auroc": 0.9841177359482277,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Dicrurus paradiseus",
+    "target_pos": 2500,
+    "seed": 0,
+    "n_train": 6988,
+    "n_train_pos": 1747,
+    "n_train_neg": 5241,
+    "n_test_pos": 417,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9456088870257807,
+      "f1": 0.6041189931350115,
+      "precision": 0.4429530201342282,
+      "recall": 0.9496402877697842,
+      "average_precision": 0.7720609146665827,
+      "auroc": 0.984341644492625
+    },
+    "autogluon": {
+      "accuracy": 0.9682456508069587,
+      "f1": 0.7133396404919584,
+      "precision": 0.5890625,
+      "recall": 0.9040767386091128,
+      "average_precision": 0.8527416551152627,
+      "auroc": 0.9884463716697874,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Dicrurus paradiseus",
+    "target_pos": 5000,
+    "seed": 0,
+    "n_train": 6988,
+    "n_train_pos": 1747,
+    "n_train_neg": 5241,
+    "n_test_pos": 417,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9456088870257807,
+      "f1": 0.6041189931350115,
+      "precision": 0.4429530201342282,
+      "recall": 0.9496402877697842,
+      "average_precision": 0.7720609146665827,
+      "auroc": 0.984341644492625
+    },
+    "autogluon": {
+      "accuracy": 0.9682456508069587,
+      "f1": 0.7133396404919584,
+      "precision": 0.5890625,
+      "recall": 0.9040767386091128,
+      "average_precision": 0.8527416551152627,
+      "auroc": 0.9884463716697874,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Erithacus rubecula",
+    "target_pos": 1000,
+    "seed": 0,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 391,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9264305177111717,
+      "f1": 0.502127659574468,
+      "precision": 0.34739941118743867,
+      "recall": 0.9053708439897699,
+      "average_precision": 0.6953288506510056,
+      "auroc": 0.9748488069309434
+    },
+    "autogluon": {
+      "accuracy": 0.946866485013624,
+      "f1": 0.5685106382978723,
+      "precision": 0.4260204081632653,
+      "recall": 0.8542199488491049,
+      "average_precision": 0.7085849487933337,
+      "auroc": 0.9761838950420076,
+      "best_model": "WeightedEnsemble_L2",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Erithacus rubecula",
+    "target_pos": 1000,
+    "seed": 1,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 391,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9247537203940474,
+      "f1": 0.49507735583684953,
+      "precision": 0.3414161008729389,
+      "recall": 0.9002557544757033,
+      "average_precision": 0.6877529311904877,
+      "auroc": 0.9722261427412375
+    },
+    "autogluon": {
+      "accuracy": 0.9476000838398658,
+      "f1": 0.5667244367417678,
+      "precision": 0.42857142857142855,
+      "recall": 0.8363171355498721,
+      "average_precision": 0.7073028234481818,
+      "auroc": 0.9755862216223906,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Erithacus rubecula",
+    "target_pos": 1000,
+    "seed": 2,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 391,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.931251309997904,
+      "f1": 0.5082458770614693,
+      "precision": 0.35949098621421,
+      "recall": 0.8670076726342711,
+      "average_precision": 0.7048479762537387,
+      "auroc": 0.9737887296428408
+    },
+    "autogluon": {
+      "accuracy": 0.9460280863550619,
+      "f1": 0.5683151718357083,
+      "precision": 0.4226932668329177,
+      "recall": 0.8670076726342711,
+      "average_precision": 0.7190311633598698,
+      "auroc": 0.9766905968936632,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Erithacus rubecula",
+    "target_pos": 2500,
+    "seed": 0,
+    "n_train": 6284,
+    "n_train_pos": 1571,
+    "n_train_neg": 4713,
+    "n_test_pos": 391,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.928526514357577,
+      "f1": 0.5079365079365079,
+      "precision": 0.35376884422110555,
+      "recall": 0.9002557544757033,
+      "average_precision": 0.7072837475103536,
+      "auroc": 0.9748499248611182
+    },
+    "autogluon": {
+      "accuracy": 0.9471808845105848,
+      "f1": 0.5764705882352941,
+      "precision": 0.4292866082603254,
+      "recall": 0.8772378516624041,
+      "average_precision": 0.6658466756123897,
+      "auroc": 0.9738755089726473,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Erithacus rubecula",
+    "target_pos": 5000,
+    "seed": 0,
+    "n_train": 6284,
+    "n_train_pos": 1571,
+    "n_train_neg": 4713,
+    "n_test_pos": 391,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.928526514357577,
+      "f1": 0.5079365079365079,
+      "precision": 0.35376884422110555,
+      "recall": 0.9002557544757033,
+      "average_precision": 0.7072837475103536,
+      "auroc": 0.9748499248611182
+    },
+    "autogluon": {
+      "accuracy": 0.9471808845105848,
+      "f1": 0.5764705882352941,
+      "precision": 0.4292866082603254,
+      "recall": 0.8772378516624041,
+      "average_precision": 0.6658466756123897,
+      "auroc": 0.9738755089726473,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Luscinia megarhynchos",
+    "target_pos": 1000,
+    "seed": 0,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 382,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9508488786417941,
+      "f1": 0.6001705029838023,
+      "precision": 0.4450063211125158,
+      "recall": 0.9214659685863874,
+      "average_precision": 0.7833607921943991,
+      "auroc": 0.9857907130935778
+    },
+    "autogluon": {
+      "accuracy": 0.958604066233494,
+      "f1": 0.6386093321134492,
+      "precision": 0.4908579465541491,
+      "recall": 0.9136125654450262,
+      "average_precision": 0.802460689293394,
+      "auroc": 0.9868575527561215,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Luscinia megarhynchos",
+    "target_pos": 1000,
+    "seed": 1,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 382,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9422552923915322,
+      "f1": 0.5664830841856806,
+      "precision": 0.4049493813273341,
+      "recall": 0.9424083769633508,
+      "average_precision": 0.7741360528497864,
+      "auroc": 0.9859747593680698
+    },
+    "autogluon": {
+      "accuracy": 0.958184866904213,
+      "f1": 0.6369426751592356,
+      "precision": 0.4881450488145049,
+      "recall": 0.9162303664921466,
+      "average_precision": 0.8032536814426703,
+      "auroc": 0.9878952422323327,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Luscinia megarhynchos",
+    "target_pos": 1000,
+    "seed": 2,
+    "n_train": 4000,
+    "n_train_pos": 1000,
+    "n_train_neg": 3000,
+    "n_test_pos": 382,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9481240830014672,
+      "f1": 0.5878434637801832,
+      "precision": 0.43101343101343104,
+      "recall": 0.9240837696335078,
+      "average_precision": 0.7796194201637827,
+      "auroc": 0.9848236127940738
+    },
+    "autogluon": {
+      "accuracy": 0.9565080695870887,
+      "f1": 0.6210045662100456,
+      "precision": 0.47685834502103785,
+      "recall": 0.8900523560209425,
+      "average_precision": 0.7591750549611553,
+      "auroc": 0.9839702553784953,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Luscinia megarhynchos",
+    "target_pos": 2500,
+    "seed": 0,
+    "n_train": 6048,
+    "n_train_pos": 1512,
+    "n_train_neg": 4536,
+    "n_test_pos": 382,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9492768811569902,
+      "f1": 0.5939597315436241,
+      "precision": 0.43703703703703706,
+      "recall": 0.9267015706806283,
+      "average_precision": 0.7921805312133315,
+      "auroc": 0.9859893344612359
+    },
+    "autogluon": {
+      "accuracy": 0.9619576608677426,
+      "f1": 0.6526315789473685,
+      "precision": 0.5143288084464555,
+      "recall": 0.8926701570680629,
+      "average_precision": 0.7812518601825987,
+      "auroc": 0.9868392624431286,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  },
+  {
+    "species": "Luscinia megarhynchos",
+    "target_pos": 5000,
+    "seed": 0,
+    "n_train": 6048,
+    "n_train_pos": 1512,
+    "n_train_neg": 4536,
+    "n_test_pos": 382,
+    "n_test": 9542,
+    "linear_probe": {
+      "accuracy": 0.9492768811569902,
+      "f1": 0.5939597315436241,
+      "precision": 0.43703703703703706,
+      "recall": 0.9267015706806283,
+      "average_precision": 0.7921805312133315,
+      "auroc": 0.9859893344612359
+    },
+    "autogluon": {
+      "accuracy": 0.9619576608677426,
+      "f1": 0.6526315789473685,
+      "precision": 0.5143288084464555,
+      "recall": 0.8926701570680629,
+      "average_precision": 0.7812518601825987,
+      "auroc": 0.9868392624431286,
+      "best_model": "NeuralNetTorch",
+      "n_models_trained": 6
+    }
+  }
+]

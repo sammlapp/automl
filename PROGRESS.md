@@ -1,6 +1,6 @@
 # AutoML vs Linear Probing — Progress Notes
 
-_Last updated: 2026-09-22 12:30 MDT_
+_Last updated: 2026-09-22 14:25 MDT_
 
 ## Goal
 
@@ -9,12 +9,13 @@ probe when both are trained on the same Perch V2 embeddings and the same
 train/eval split, on a real subset of WABAD. Question: does the AutoML
 advantage hold across classes and across training-set sizes?
 
-## Status
+## Status: both phases complete
 
-- **Phase 1 (single-label multiclass, 19 species, <=250 train clips/class):
-  complete.** See "Phase 1 results" below.
-- **Phase 2 (multi-label, 8 species, 1k-5k positive training labels):
-  in progress.** See "Phase 2: multi-label follow-up" below.
+- **Phase 1** (single-label multiclass, 19 species, <=250 train clips/class):
+  linear probe wins at every training fraction. See "Phase 1 results" below.
+- **Phase 2** (multi-label, 8 species, 1k-5k positive training labels):
+  **AutoGluon wins at every training-size target** -- the opposite result
+  from Phase 1. See "Phase 2 results" below.
 
 ## Phase 2: multi-label follow-up (why, and how it differs from Phase 1)
 
@@ -59,9 +60,56 @@ standard for imbalanced binary/multi-label bioacoustic detection.
 Accuracy/F1/precision/recall are also recorded per-class for reference.
 
 New scripts: `05_build_multilabel_manifest.py`, `06_extract_embeddings_multilabel.py`,
-`07_run_multilabel_experiment.py`, `08_analyze_multilabel_results.py`. Results
-(once run) go to `results/raw_results_multilabel.json` and
-`results/multilabel_headline.csv` (mAP/macro-AUROC by training-size target).
+`07_run_multilabel_experiment.py`, `08_analyze_multilabel_results.py`. Results:
+`results/raw_results_multilabel.json`, `results/multilabel_headline.csv`
+(mAP/macro-AUROC by training-size target), `results/multilabel_per_class_ap_target5000.csv`,
+`results/multilabel_per_class_auroc_target5000.csv`.
+
+## Phase 2 results (multi-label, 1k-5k positive labels/species)
+
+**Bottom line: AutoGluon beat the linear probe at every training-size target
+tested, on both headline metrics — the opposite of the Phase 1 result.**
+
+Final per-species training pool sizes (all 8 species landed in the
+requested 1k-5k range): Fringilla coelebs 3421, Malacopteron magnirostre
+3719, Turdus merula 2660, Stachyris maculata 2105, Dicrurus paradiseus 1747,
+Sylvia atricapilla 1662, Luscinia megarhynchos 1512, Erithacus rubecula 1571
+train positives (test set: ~25% of each, never subsampled).
+
+mAP / macro-AUROC (mean across the 8 species), by training-positives target:
+
+| target positives | linear probe mAP | AutoGluon mAP | delta | linear probe macro-AUROC | AutoGluon macro-AUROC | delta |
+|---:|---:|---:|---:|---:|---:|---:|
+| 1000 | 0.802 | 0.816 | **+0.013** | 0.9815 | 0.9833 | **+0.0018** |
+| 2500 | 0.820 | 0.832 | **+0.012** | 0.9834 | 0.9850 | **+0.0016** |
+| 5000\* | 0.822 | 0.838 | **+0.015** | 0.9837 | 0.9858 | **+0.0021** |
+
+\*"5000" target used all available positives for every species (max was
+3719), since none reached 5000 — see caveat below.
+
+**Per-class at the largest target**: AutoGluon wins AP on 6/8 species and
+AUROC on 6/8 species (`results/multilabel_per_class_ap_target5000.csv`,
+`results/multilabel_per_class_auroc_target5000.csv`). Biggest AutoGluon
+wins: Dicrurus paradiseus (+0.081 AP), Turdus merula (+0.028 AP),
+Malacopteron magnirostre (+0.024 AP). The only species where the linear
+probe wins: Erithacus rubecula (-0.041 AP) and Luscinia megarhynchos
+(-0.011 AP) -- both among the smaller-n species (1512-1571 train positives).
+
+**Interpretation**: this reverses Phase 1's finding, and the likely reason
+is the regime, not the species: Phase 1 was 19-way multiclass with
+<=250 samples/class (small-n, large-p, hard for trees); Phase 2 is one-vs-rest
+binary detection with 1.5k-3.7k positives (larger-n, still large-p, and
+AutoGluon's RF/ExtraTrees/NN ensemble had enough data to add real value over
+a single linear decision boundary). The gap also grows with training-set
+size here (opposite of Phase 1, where the AutoML gap shrank as n grew) --
+consistent with AutoML needing enough data to pay off, and 1.5k+ positives
+per class being enough where 250 wasn't.
+
+**Caveat carried over from Phase 1**: same GBM/CatBoost/XGBoost exclusion
+applies (see "Environment issues" below) -- AutoGluon's win here is with a
+RF+ExtraTrees+NN ensemble, not its full model zoo. A working LightGBM/XGBoost
+stack could plausibly widen AutoGluon's advantage further (gradient boosting
+often shines specifically in this larger-n binary-classification regime).
 
 ## Setup
 
