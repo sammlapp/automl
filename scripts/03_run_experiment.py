@@ -109,7 +109,7 @@ def fit_eval_autogluon(X_train, y_train, X_test, y_test, tag):
     ).fit(
         train_df,
         presets="best_quality",
-        time_limit=180,
+        time_limit=120,
     )
 
     preds = predictor.predict(test_df).values
@@ -146,12 +146,24 @@ def main():
     AG_MODEL_DIR.mkdir(parents=True, exist_ok=True)
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
+    results_path = RESULTS_DIR / "raw_results.json"
     all_results = []
+    done_tags = set()
+    if results_path.exists():
+        with open(results_path) as f:
+            all_results = json.load(f)
+        done_tags = {f"frac{r['frac']}_seed{r['seed']}" for r in all_results}
+        print(f"Resuming: {len(done_tags)} combos already done: {sorted(done_tags)}")
 
     for frac in TRAIN_FRACTIONS:
         for seed in SEEDS:
             if frac == 1.0 and seed != SEEDS[0]:
                 # frac=1.0 is deterministic (no subsampling), skip repeated seeds
+                continue
+
+            tag = f"frac{frac}_seed{seed}"
+            if tag in done_tags:
+                print(f"Skipping {tag}: already in raw_results.json")
                 continue
 
             sub_idx = subsample_train(train_idx_all, y_train_all, frac, seed)
@@ -163,7 +175,6 @@ def main():
                 continue
 
             n_train = len(y_train)
-            tag = f"frac{frac}_seed{seed}"
             print(f"\n=== {tag}: n_train={n_train} (min/class={class_counts.min()}, max/class={class_counts.max()}) ===")
 
             lp_result = fit_eval_linear_probe(X_train, y_train, X_test, y_test)

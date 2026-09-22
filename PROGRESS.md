@@ -60,12 +60,20 @@ advantage hold across classes and across training-set sizes?
 4. **Background process management**: `nohup cmd & disown` inside this
    sandboxed Bash tool gets silently killed once the tool call returns
    (no error, no exit message — just gone, orphaned worker processes left
-   behind). Fix: always launch long-running work directly via the Bash
-   tool's own `run_in_background: true`, not manual `nohup`/`disown`.
+   behind). Using the Bash tool's `run_in_background: true` is better but
+   still bounded by that call's own `timeout` (max 600s) — the full
+   experiment (9 combos x ~2-3 min AutoGluon fit each) exceeds that, so
+   the process was getting killed mid-run partway through, again with no
+   clean error (just leaked-semaphore warnings on exit). Fix: made
+   `scripts/03_run_experiment.py` resumable (skips frac/seed combos
+   already present in `results/raw_results.json`), and drive it with a
+   persistent Monitor wrapped in a retry loop that re-invokes the script
+   until all combos are present in the results file.
 
 ## Results so far
 
-_(pending — experiment in progress)_
+_(pending — experiment running under a resumable retry loop; see
+`results/raw_results.json` for combos completed so far)_
 
 ## Next steps
 
