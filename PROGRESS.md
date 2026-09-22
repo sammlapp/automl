@@ -82,16 +82,36 @@ advantage hold across classes and across training-set sizes?
    heavy nested multiprocessing for very small per-class sample counts
    (3-19 at the smallest training fraction) and appears to hit a resource
    contention crash on this machine. Switched to `presets='medium_quality'`
-   (no auto_stack/bagging, single-level weighted ensemble) — verified
-   stable in isolated testing (completed cleanly, produced a real
-   multi-model leaderboard: RandomForest, CatBoost, WeightedEnsemble).
-   Still genuine AutoML (HPO + ensembling across model families), just
-   without deep stacking.
+   (no auto_stack/bagging, single-level weighted ensemble).
+7. **With `medium_quality` + GBM excluded, only 4 models ever got fit**
+   (CatBoost + RF-Gini + RF-Entr + WeightedEnsemble) — turned out CatBoost
+   with default settings is pathologically slow on 1536 raw embedding
+   features (~0.4s/iteration; confirmed with a standalone timing test),
+   eating the entire time budget by itself (even at time_limit=300s) and
+   starving every other model family regardless of how much time was
+   given.
+8. **Excluding CatBoost too, then XGBoost got a turn and segfaulted** —
+   raw `xgboost.XGBClassifier.fit()` works fine standalone, so this is
+   specific to AutoGluon's fit wrapper on this machine, same failure
+   signature as the LightGBM crash.
+9. **Final stable config**: excluded all four native-code / slow model
+   families (`GBM`, `CAT`, `XGB`, `FASTAI`), keeping only `RF`,
+   `XT` (ExtraTrees), and `NN_TORCH` (a PyTorch MLP — pure Python/Torch,
+   no crash risk). Verified in isolated testing: 5 base models + 1
+   weighted ensemble, all fit cleanly in ~4 seconds total, with
+   NeuralNetTorch as the best individual model (val macro-F1 0.81,
+   beating the earlier CatBoost-only run's 0.79). This is a narrower
+   model zoo than AutoGluon's full default, but still genuinely AutoML:
+   multiple model families, hyperparameter variants (gini vs entropy for
+   RF/XT), and learned ensembling — the properties this experiment is
+   actually testing.
 
 ## Results so far
 
-_(pending — full run launched with the stable `medium_quality` + GBM-excluded
-config; see `results/raw_results.json` for combos completed so far)_
+_(pending — full run launched with the final stable RF+XT+NN_Torch config;
+see `results/raw_results.json` for combos completed so far. This config
+runs in seconds per combo rather than minutes, so the full 10-combo sweep
+should finish quickly.)_
 
 ## Next steps
 

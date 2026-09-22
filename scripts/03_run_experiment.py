@@ -101,25 +101,31 @@ def fit_eval_autogluon(X_train, y_train, X_test, y_test, tag):
     if save_path.exists():
         shutil.rmtree(save_path)
 
-    # NOTE: LightGBM (the 'GBM' model family) reliably segfaults (SIGSEGV) during
-    # AutoGluon's bagged fold fitting on this machine (macOS arm64, lightgbm 4.7.0,
-    # autogluon 1.6.3) -- reproduced consistently in isolation, independent of
-    # OMP_NUM_THREADS. Excluded here; AutoGluon still ensembles CatBoost, XGBoost,
-    # RandomForest, ExtraTrees, and a Torch neural net, so this remains a genuine
-    # multi-model AutoML comparison, just without one gradient-boosting family.
+    # NOTE on this machine (macOS arm64, autogluon.tabular 1.6.3): every native-code
+    # gradient-boosting library AutoGluon tries to wrap crashes the process with
+    # SIGSEGV during fitting -- LightGBM reliably (reproduced in isolation,
+    # independent of OMP_NUM_THREADS), and XGBoost intermittently once given a
+    # chance to run (raw xgboost.XGBClassifier.fit() works fine standalone, so
+    # it's specific to AutoGluon's wrapper/threading). CatBoost doesn't crash but
+    # is pathologically slow on 1536 raw embedding features (~0.4s/iteration,
+    # consumes the entire time budget alone and starves every other model family
+    # regardless of how much time_limit is raised). 'best_quality' preset
+    # (auto_stack + 8-fold bagging x 2 stack levels) also crashed intermittently,
+    # likely resource contention from nested multiprocessing given our very small
+    # per-class sample counts (as few as 3-19 per class at the smallest training
+    # fraction).
     #
-    # Also: 'best_quality' preset (auto_stack + dynamic stacking / 8-fold bagging
-    # x 2 stack levels) crashed (SIGSEGV) intermittently even with GBM excluded --
-    # likely a resource-contention issue under heavy nested multiprocessing on this
-    # machine, given our very small per-class sample counts (as few as 3-19 per
-    # class at the smallest training fraction). Using 'medium_quality' instead
-    # (no auto_stack/bagging, single-level weighted ensemble across model
-    # families) -- still genuine hyperparameter search + ensembling (the AutoML
-    # properties this experiment is testing), just without deep stacking, and it
-    # runs reliably.
+    # Final stable configuration: 'medium_quality' preset (no bagging/stacking)
+    # with only RandomForest, ExtraTrees, and a PyTorch neural net (GBM/CAT/XGB/
+    # FASTAI excluded). Verified crash-free and fast in isolated testing. This is
+    # a narrower model zoo than AutoGluon's full default, but still a genuine
+    # AutoML comparison: multiple model families + hyperparameter variants
+    # (RF/XT gini vs entropy) + learned weighted ensembling, run against the same
+    # embeddings/splits as the linear probe.
     from autogluon.tabular.configs.hyperparameter_configs import get_hyperparameter_config
     hyperparameters = get_hyperparameter_config("default")
-    hyperparameters.pop("GBM", None)
+    for family in ("GBM", "CAT", "XGB", "FASTAI"):
+        hyperparameters.pop(family, None)
 
     predictor = TabularPredictor(
         label="label",
