@@ -74,16 +74,24 @@ advantage hold across classes and across training-set sizes?
    This is what was actually killing the "long-running process" (not a
    timeout as first suspected) — the retry-loop's first few restarts were
    masking a deterministic crash, not a transient one. Fix: excluded the
-   `GBM` model family from AutoGluon's hyperparameter search
-   (`get_hyperparameter_config("default")` with `GBM` popped). AutoGluon
-   still ensembles CatBoost, XGBoost, RandomForest, ExtraTrees, and a
-   Torch neural net — still a genuine multi-model AutoML comparison,
-   just missing one gradient-boosting family.
+   `GBM` model family from AutoGluon's hyperparameter search.
+6. **Still crashed intermittently even with GBM excluded**, but later in
+   the pipeline (after L1+L2 stacking made real progress) — traced to
+   `presets='best_quality'`, which enables `auto_stack`/dynamic stacking
+   (8-fold bagging x 2 stack levels x ~100 hyperparameter configs). That's
+   heavy nested multiprocessing for very small per-class sample counts
+   (3-19 at the smallest training fraction) and appears to hit a resource
+   contention crash on this machine. Switched to `presets='medium_quality'`
+   (no auto_stack/bagging, single-level weighted ensemble) — verified
+   stable in isolated testing (completed cleanly, produced a real
+   multi-model leaderboard: RandomForest, CatBoost, WeightedEnsemble).
+   Still genuine AutoML (HPO + ensembling across model families), just
+   without deep stacking.
 
 ## Results so far
 
-_(pending — experiment running under a resumable retry loop with GBM
-excluded; see `results/raw_results.json` for combos completed so far)_
+_(pending — full run launched with the stable `medium_quality` + GBM-excluded
+config; see `results/raw_results.json` for combos completed so far)_
 
 ## Next steps
 

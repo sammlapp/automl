@@ -107,6 +107,16 @@ def fit_eval_autogluon(X_train, y_train, X_test, y_test, tag):
     # OMP_NUM_THREADS. Excluded here; AutoGluon still ensembles CatBoost, XGBoost,
     # RandomForest, ExtraTrees, and a Torch neural net, so this remains a genuine
     # multi-model AutoML comparison, just without one gradient-boosting family.
+    #
+    # Also: 'best_quality' preset (auto_stack + dynamic stacking / 8-fold bagging
+    # x 2 stack levels) crashed (SIGSEGV) intermittently even with GBM excluded --
+    # likely a resource-contention issue under heavy nested multiprocessing on this
+    # machine, given our very small per-class sample counts (as few as 3-19 per
+    # class at the smallest training fraction). Using 'medium_quality' instead
+    # (no auto_stack/bagging, single-level weighted ensemble across model
+    # families) -- still genuine hyperparameter search + ensembling (the AutoML
+    # properties this experiment is testing), just without deep stacking, and it
+    # runs reliably.
     from autogluon.tabular.configs.hyperparameter_configs import get_hyperparameter_config
     hyperparameters = get_hyperparameter_config("default")
     hyperparameters.pop("GBM", None)
@@ -119,7 +129,7 @@ def fit_eval_autogluon(X_train, y_train, X_test, y_test, tag):
     ).fit(
         train_df,
         hyperparameters=hyperparameters,
-        presets="best_quality",
+        presets="medium_quality",
         time_limit=120,
     )
 
