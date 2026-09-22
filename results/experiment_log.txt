@@ -2,5 +2,43 @@ Total train pool: 1456, test: 368
 Classes: 19
 
 === frac0.1_seed0: n_train=144 (min/class=3, max/class=19) ===
-	Warning: Exception caused NeuralNetFastAI_BAG_L1 to fail during training (ImportError)... Skipping this model.
-		Import fastai failed. A quick tip is to install via `pip install autogluon.tabular[fastai]==1.6.3`. 
+  Linear probe: acc=0.8397 macro_f1=0.7827
+  AutoGluon:    acc=0.7609 macro_f1=0.6783 (best=NeuralNetTorch, n_models=6)
+
+=== frac0.1_seed1: n_train=144 (min/class=3, max/class=19) ===
+  Linear probe: acc=0.8179 macro_f1=0.7637
+  AutoGluon:    acc=0.7609 macro_f1=0.6610 (best=WeightedEnsemble_L2, n_models=6)
+
+=== frac0.1_seed2: n_train=144 (min/class=3, max/class=19) ===
+  Linear probe: acc=0.8397 macro_f1=0.7920
+  AutoGluon:    acc=0.7772 macro_f1=0.7037 (best=WeightedEnsemble_L2, n_models=6)
+
+=== frac0.25_seed0: n_train=363 (min/class=8, max/class=48) ===
+  Linear probe: acc=0.9022 macro_f1=0.8701
+  AutoGluon:    acc=0.8696 macro_f1=0.8176 (best=NeuralNetTorch, n_models=6)
+
+=== frac0.25_seed1: n_train=363 (min/class=8, max/class=48) ===
+  Linear probe: acc=0.8859 macro_f1=0.8514
+  AutoGluon:    acc=0.8288 macro_f1=0.7801 (best=NeuralNetTorch, n_models=6)
+
+=== frac0.25_seed2: n_train=363 (min/class=8, max/class=48) ===
+  Linear probe: acc=0.8859 macro_f1=0.8545
+  AutoGluon:    acc=0.8451 macro_f1=0.7889 (best=NeuralNetTorch, n_models=6)
+
+=== frac0.5_seed0: n_train=728 (min/class=15, max/class=96) ===
+  Linear probe: acc=0.9049 macro_f1=0.8880
+  AutoGluon:    acc=0.8859 macro_f1=0.8520 (best=WeightedEnsemble_L2, n_models=6)
+
+=== frac0.5_seed1: n_train=728 (min/class=15, max/class=96) ===
+  Linear probe: acc=0.9076 macro_f1=0.8881
+  AutoGluon:    acc=0.8478 macro_f1=0.8059 (best=NeuralNetTorch, n_models=6)
+
+=== frac0.5_seed2: n_train=728 (min/class=15, max/class=96) ===
+  Linear probe: acc=0.9076 macro_f1=0.8852
+  AutoGluon:    acc=0.8696 macro_f1=0.8350 (best=NeuralNetTorch, n_models=6)
+
+=== frac1.0_seed0: n_train=1456 (min/class=30, max/class=193) ===
+  Linear probe: acc=0.9212 macro_f1=0.9072
+  AutoGluon:    acc=0.9049 macro_f1=0.8880 (best=NeuralNetTorch, n_models=6)
+
+Done. Results saved to results/raw_results.json

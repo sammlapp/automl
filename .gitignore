@@ -20,3 +20,4 @@ results/*.npz
 # AutoGluon working dirs
 AutogluonModels/
 *.ag/
+catboost_info/
