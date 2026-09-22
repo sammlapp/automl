@@ -101,6 +101,16 @@ def fit_eval_autogluon(X_train, y_train, X_test, y_test, tag):
     if save_path.exists():
         shutil.rmtree(save_path)
 
+    # NOTE: LightGBM (the 'GBM' model family) reliably segfaults (SIGSEGV) during
+    # AutoGluon's bagged fold fitting on this machine (macOS arm64, lightgbm 4.7.0,
+    # autogluon 1.6.3) -- reproduced consistently in isolation, independent of
+    # OMP_NUM_THREADS. Excluded here; AutoGluon still ensembles CatBoost, XGBoost,
+    # RandomForest, ExtraTrees, and a Torch neural net, so this remains a genuine
+    # multi-model AutoML comparison, just without one gradient-boosting family.
+    from autogluon.tabular.configs.hyperparameter_configs import get_hyperparameter_config
+    hyperparameters = get_hyperparameter_config("default")
+    hyperparameters.pop("GBM", None)
+
     predictor = TabularPredictor(
         label="label",
         path=str(save_path),
@@ -108,6 +118,7 @@ def fit_eval_autogluon(X_train, y_train, X_test, y_test, tag):
         verbosity=0,
     ).fit(
         train_df,
+        hyperparameters=hyperparameters,
         presets="best_quality",
         time_limit=120,
     )

@@ -61,19 +61,29 @@ advantage hold across classes and across training-set sizes?
    sandboxed Bash tool gets silently killed once the tool call returns
    (no error, no exit message — just gone, orphaned worker processes left
    behind). Using the Bash tool's `run_in_background: true` is better but
-   still bounded by that call's own `timeout` (max 600s) — the full
-   experiment (9 combos x ~2-3 min AutoGluon fit each) exceeds that, so
-   the process was getting killed mid-run partway through, again with no
-   clean error (just leaked-semaphore warnings on exit). Fix: made
+   still bounded by that call's own `timeout` (max 600s). Fix: made
    `scripts/03_run_experiment.py` resumable (skips frac/seed combos
    already present in `results/raw_results.json`), and drive it with a
    persistent Monitor wrapped in a retry loop that re-invokes the script
    until all combos are present in the results file.
+5. **LightGBM segfaults (SIGSEGV) during AutoGluon bagged fitting** —
+   reproduced in isolation: raw lightgbm.train() works fine (single- or
+   multi-threaded), but AutoGluon's `LightGBMXT_BAG_L1` fold-fitting step
+   crashes the process every time, regardless of `OMP_NUM_THREADS`.
+   Environment: macOS arm64, lightgbm 4.7.0, autogluon.tabular 1.6.3.
+   This is what was actually killing the "long-running process" (not a
+   timeout as first suspected) — the retry-loop's first few restarts were
+   masking a deterministic crash, not a transient one. Fix: excluded the
+   `GBM` model family from AutoGluon's hyperparameter search
+   (`get_hyperparameter_config("default")` with `GBM` popped). AutoGluon
+   still ensembles CatBoost, XGBoost, RandomForest, ExtraTrees, and a
+   Torch neural net — still a genuine multi-model AutoML comparison,
+   just missing one gradient-boosting family.
 
 ## Results so far
 
-_(pending — experiment running under a resumable retry loop; see
-`results/raw_results.json` for combos completed so far)_
+_(pending — experiment running under a resumable retry loop with GBM
+excluded; see `results/raw_results.json` for combos completed so far)_
 
 ## Next steps
 
