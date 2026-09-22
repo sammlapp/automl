@@ -1,6 +1,6 @@
 # AutoML vs Linear Probing — Progress Notes
 
-_Last updated: 2026-09-22 12:05 MDT_
+_Last updated: 2026-09-22 12:30 MDT_
 
 ## Goal
 
@@ -9,7 +9,59 @@ probe when both are trained on the same Perch V2 embeddings and the same
 train/eval split, on a real subset of WABAD. Question: does the AutoML
 advantage hold across classes and across training-set sizes?
 
-## Status: experiment complete, results in
+## Status
+
+- **Phase 1 (single-label multiclass, 19 species, <=250 train clips/class):
+  complete.** See "Phase 1 results" below.
+- **Phase 2 (multi-label, 8 species, 1k-5k positive training labels):
+  in progress.** See "Phase 2: multi-label follow-up" below.
+
+## Phase 2: multi-label follow-up (why, and how it differs from Phase 1)
+
+Phase 1 threw away every WABAD clip with more than one species label to force
+an ordinary single-label multiclass setup -- that capped realistic per-class
+sample sizes at a few hundred at most (single-label clips are a small,
+non-representative slice of the data; ~82% of clips have multiple co-occurring
+species). To get 1k-5k labeled examples per species, the correct fix is to
+stop discarding multi-species clips and treat WABAD as what it actually is:
+**multi-label**. Each clip's target is a binary vector over species
+(present/absent), not one class out of N.
+
+Reframed as **one-vs-rest binary presence/absence classification per
+species**, using every clip (not just single-label ones) as a positive or
+negative example for each target species independently. This unlocks far
+more data: across all 72 WABAD sites, 31 species have >=1000 total
+occurrences and 8 have >=2000, vs. only 1 species clearing 1000 under the
+single-label-only framing.
+
+**Target species** (8, chosen for >=2000 total occurrences, concentrated in
+relatively few sites to keep the download manageable):
+Fringilla coelebs, Malacopteron magnirostre, Turdus merula, Stachyris
+maculata, Sylvia atricapilla, Dicrurus paradiseus, Erithacus rubecula,
+Luscinia megarhynchos.
+
+**Sites**: expanded from 8 to 25 (17 new: BOLIN, CAT, CLH, DONG, DYOM, EFFOR,
+EFFOU, EVROS, KAR, NAV, OLIV, PITI, POZO, SCHF, SITH, SLOB, VIL), ~6.1GB more
+download, chosen as the top sites contributing to the 8 target species.
+
+**Experiment design**: for each species x training-positive-count target
+(1000, 2500, 5000) x 3 seeds, subsample the training pool to ~that many
+positives with a fixed 3:1 negative:positive ratio, fit linear probe
+(`LogisticRegressionCV`, scored on average precision) vs AutoGluon (same
+RF+ExtraTrees+NN config as Phase 1, `eval_metric='average_precision'`) on the
+SAME subsample, evaluate both on the FULL native test split (not subsampled).
+
+**Eval metrics** (per user request): **mAP** (mean average precision,
+averaged across the 8 species) and **macro-AUROC** (AUROC averaged across
+species) are the headline numbers, plus **per-class AP and per-class AUROC**
+for the breakdown. Both AP and AUROC are threshold-free ranking metrics,
+standard for imbalanced binary/multi-label bioacoustic detection.
+Accuracy/F1/precision/recall are also recorded per-class for reference.
+
+New scripts: `05_build_multilabel_manifest.py`, `06_extract_embeddings_multilabel.py`,
+`07_run_multilabel_experiment.py`, `08_analyze_multilabel_results.py`. Results
+(once run) go to `results/raw_results_multilabel.json` and
+`results/multilabel_headline.csv` (mAP/macro-AUROC by training-size target).
 
 ## Setup
 
@@ -82,7 +134,7 @@ advantage hold across classes and across training-set sizes?
    likely include LightGBM/XGBoost/CatBoost and could score higher; this
    result reflects AutoGluon's tree/NN ensemble, not its full model zoo.
 
-## Results
+## Phase 1 results (single-label multiclass, 19 species)
 
 **Bottom line: the linear probe beat AutoGluon at every training fraction
 tested, and the gap shrinks as training data grows but doesn't close.**
@@ -140,8 +192,7 @@ results/                           # raw_results.json + summary CSVs (tracked, s
 
 - Re-run with a working LightGBM/XGBoost/CatBoost stack (e.g. Linux box or
   Docker) to see whether AutoGluon's full model zoo closes the gap.
-- Expand beyond 8 WABAD sites / 19 species for more statistical power on
-  the per-class breakdown.
 - Try AutoGluon's `extreme_quality`/foundation-model presets (TabPFN etc.)
   now that `noncommercial_2026_08_05`-style portfolios exist — may be
   better suited to small-n tabular data than tree ensembles.
+- Phase 2 (larger per-class sample sizes) is in progress — see above.
