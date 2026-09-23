@@ -1,6 +1,6 @@
 # AutoML vs Linear Probing — Progress Notes
 
-_Last updated: 2026-09-23 08:15 MDT_
+_Last updated: 2026-09-23 09:50 MDT_
 
 ## Goal
 
@@ -19,13 +19,18 @@ the full native test split. An earlier single-label-multiclass framing
 was tried first and abandoned — see "Methodological note" below — and its
 results are not reported here.
 
-## Status
+## Status: both runs complete
 
-- **8-species run (1k-5k positive training labels/species): complete.**
-  AutoGluon beats the linear probe at every training-size target. See
-  "Results: 8 species, 1k-5k labels" below.
+- **8-species run (1k-3.7k positive training labels/species):** AutoGluon
+  beats the linear probe at every training-size target, gap widens with
+  more data. See "Results: 8 species, 1k-5k labels" below.
 - **All-species run (455 species, small training sizes 5/25/100
-  positives/species): running.** See "Results: all species, small-n" below.
+  positives/species):** linear probe beats AutoGluon at every training-size
+  target, gap narrows with more data. See "Results: all species, small-n"
+  below. **Together, these two runs form one consistent picture across
+  training sizes from 5 to ~3700 positives/class: linear probe wins small,
+  AutoGluon wins large, and the crossover happens somewhere between
+  ~100 and ~1000 positives per class in this setup.**
 
 ## Methodological note: why not single-label multiclass
 
@@ -97,32 +102,54 @@ needing enough samples to pay off. Scripts: `05_build_multilabel_manifest.py`,
 
 ## Results: all species, small-n
 
-**In progress.** Extends the same multi-label one-vs-rest framing to every
-species with enough data (455 species, reusing the same 25-site clip pool
-and the already-extracted embeddings — no new downloads or re-extraction
-needed), at small training-positive targets: **5, 25, and 100 positives per
-species** (per user request), fixed 3:1 negative:positive ratio, evaluated
-on the full native test split.
+**Bottom line: at small training sizes, the linear probe wins — reversing
+the 8-species result — and the gap shrinks (but doesn't close) as training
+size grows from 5 to 100 positives.** Combined with the 8-species result
+above (1k-3.7k positives, AutoGluon wins and the gap widens with more
+data), this traces one consistent story across nearly three orders of
+magnitude of training-set size: **the linear probe wins in the very-low-data
+regime; AutoGluon overtakes it once there's enough data (roughly
+somewhere between 100 and 1000 positives per class in this setup), and its
+advantage keeps growing from there.**
 
-A species is only run at a target if it has enough training positives for
-that target: 455/300/147 species qualify for the 5/25/100 targets
-respectively (902 species-target combos total).
+Extends the same multi-label one-vs-rest framing to every species with
+enough data: **455 species**, reusing the same 25-site clip pool and the
+already-extracted embeddings (no new downloads or re-extraction needed),
+at training-positive targets **5, 25, and 100 positives per species** (per
+user request), fixed 3:1 negative:positive ratio, evaluated on the full
+native test split. A species is only run at a target if it has enough
+training positives for that target: 455/300/147 species qualify for the
+5/25/100 targets respectively (902 species-target combos total, single
+seed per combo given the scale — see tradeoff note below).
 
-**Scale tradeoff**: unlike the 8-species run (3 seeds/combo), this uses a
-**single seed per combo** to keep total runtime tractable (~900 combos x
-~5-8s/combo for AutoGluon + linear probe fits ≈ 1.5-2 hours). Single-seed
-results at n=5-100 will be noisier than the 8-species run's multi-seed
-numbers — lean on the aggregate (mAP / macro-AUROC across all species) for
-the headline claim, treat individual species results as indicative rather
-than precise.
+mAP / macro-AUROC (mean across all species run at that target):
+
+| target positives | # species | linear probe mAP | AutoGluon mAP | delta | linear probe macro-AUROC | AutoGluon macro-AUROC | delta |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 5   | 455 | 0.439 | 0.363 | **-0.077** | 0.9812 | 0.9710 | **-0.0103** |
+| 25  | 300 | 0.516 | 0.489 | **-0.027** | 0.9872 | 0.9844 | **-0.0028** |
+| 100 | 147 | 0.645 | 0.627 | **-0.018** | 0.9897 | 0.9885 | **-0.0012** |
+
+Per-species win counts (AP): at target=5, linear probe wins 331/455,
+AutoGluon wins 104/455, ties 20. At target=25: linear probe wins 189/300,
+AutoGluon wins 107/300. At target=100: linear probe wins 91/147, AutoGluon
+wins 56/147. Linear probe's win margin shrinks steadily as training size
+grows, consistent with the mAP gap narrowing.
+
+**Scale tradeoffs**: unlike the 8-species run (3 seeds/combo), this uses a
+**single seed per combo** given the ~900-combo scale — per-species numbers
+are noisier than the 8-species run's, so lean on the aggregate for the
+headline claim. Also, ~9% of species (42/455) have only 1 positive test
+example at target=5, which makes their individual AP/AUROC values noisy
+(binary outcomes) — this adds noise to, but should not systematically bias,
+the 455-species mean.
 
 Scripts: `09_build_all_species_manifest.py` (455-species label manifest,
 reuses existing audio), `10_build_all_species_embeddings.py` (reuses
 embeddings from the 8-species run instead of re-running ONNX inference),
-`11_run_all_species_experiment.py`. Results (once complete):
-`results/raw_results_all_species.json`.
-
-_Results table will be added here once the run completes._
+`11_run_all_species_experiment.py`, `12_analyze_all_species_results.py`.
+Results: `results/raw_results_all_species.json`, `results/all_species_headline.csv`,
+`results/all_species_per_species_target{5,25,100}.csv`.
 
 ## Setup
 
@@ -192,6 +219,7 @@ scripts/08_analyze_multilabel_results.py    # aggregate -> mAP / macro-AUROC / p
 scripts/09_build_all_species_manifest.py    # 455-species multi-label manifest (reuses audio)
 scripts/10_build_all_species_embeddings.py  # reuses embeddings from the 8-species run
 scripts/11_run_all_species_experiment.py    # linear probe vs AutoGluon, 455 species, 5/25/100 targets
+scripts/12_analyze_all_species_results.py   # aggregate -> mAP / macro-AUROC / per-species tables
 data/                              # WABAD metadata + audio zips (gitignored, re-fetchable)
 data_audio/                        # extracted WABAD audio (gitignored, re-fetchable)
 models/                            # Perch V2 ONNX + labels (gitignored, re-downloadable)
